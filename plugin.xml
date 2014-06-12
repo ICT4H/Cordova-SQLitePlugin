@@ -51,6 +51,16 @@
         </config-file>
 
         <source-file src="src/android/org/pgsqlite/SQLitePlugin.java" target-dir="src/org/pgsqlite"/>
+        <source-file src="libs/guava-r09.jar" target-dir="libs/" />
+        <source-file src="libs/sqlcipher.jar" target-dir="libs/" />
+        <source-file src="libs/x86/libdatabase_sqlcipher.so" target-dir="libs/x86/" />
+        <source-file src="libs/x86/libsqlcipher_android.so" target-dir="libs/x86/" />
+        <source-file src="libs/x86/libstlport_shared.so" target-dir="libs/x86/" />
+        <source-file src="libs/armeabi-v7a/libdatabase_sqlcipher.so" target-dir="libs/armeabi-v7a/" />
+        <source-file src="libs/armeabi-v7a/libsqlcipher_android.so" target-dir="libs/armeabi-v7a/" />
+        <source-file src="libs/armeabi-v7a/libstlport_shared.so" target-dir="libs/armeabi-v7a/" />
+        <source-file src="assets/icudt46l.zip" target-dir="assets/" />
+
     </platform>
 
     <!-- ios -->

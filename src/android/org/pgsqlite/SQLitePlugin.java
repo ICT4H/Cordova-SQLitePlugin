@@ -75,6 +75,7 @@ public class SQLitePlugin extends CordovaPlugin
 				String key = o.getString("key");
 				try {
 					this.openDatabase(dbname, key);
+					cbc.success();
 				} catch (Exception e) {
 					cbc.error("Failed to open db");
 				}

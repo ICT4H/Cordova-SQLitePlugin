@@ -51,10 +51,13 @@
   };
 
   SQLitePlugin.prototype.open = function(success, error) {
-    if (!(this.dbname in this.openDBs)) {
+    //TODO
+    //if (!(this.dbname in this.openDBs)) {
       this.openDBs[this.dbname] = true;
       cordova.exec(success, error, "SQLitePlugin", "open", [this.openargs]);
-    }
+    //} else {
+      // console.log('db is still there in open list');
+    //}
   };
 
   SQLitePlugin.prototype.close = function(success, error) {

@@ -197,21 +197,9 @@ public class SQLitePlugin extends CordovaPlugin {
     // --------------------------------------------------------------------------
 
     private void startDatabase(String dbname, boolean createFromAssets, CallbackContext cbc, String key) {
-        // TODO: is it an issue that we can orphan an existing thread?  What should we do here?
-        // If we re-use the existing DBRunner it might be in the process of closing...
-        DBRunner r = dbrmap.get(dbname);
-
-        // Brody TODO: It may be better to terminate the existing db thread here & start a new one, instead.
-        if (r != null) {
-        	// don't orphan the existing thread; just re-open the existing database.
-        	// In the worst case it might be in the process of closing, but even that's less serious
-        	// than orphaning the old DBRunner.
-            cbc.success();
-        } else {
-            r = new DBRunner(dbname, createFromAssets, cbc, key);
-            dbrmap.put(dbname, r);
-            this.cordova.getThreadPool().execute(r);
-        }
+        DBRunner r = new DBRunner(dbname, createFromAssets, cbc, key);
+        dbrmap.put(dbname, r);
+        this.cordova.getThreadPool().execute(r);
     }
     /**
      * Open a database.
